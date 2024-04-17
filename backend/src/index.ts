@@ -5,9 +5,14 @@ const app = express()
 const port = 3000
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:5173')
-  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE')
-  res.header('Access-Control-Allow-Headers', 'Content-Type')
+  // Thiết lập tiêu đề CORS cho phép mọi nguồn truy cập API
+  res.header('Access-Control-Allow-Origin', '*')
+  // Cho phép tất cả các phương thức HTTP
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
+  // Cho phép tất cả các tiêu đề
+  res.header('Access-Control-Allow-Headers', '*')
+
+  // Tiếp tục quá trình xử lý yêu cầu
   next()
 })
 app.get('/post', (req, res) => {
