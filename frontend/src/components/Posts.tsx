@@ -11,7 +11,7 @@ function Posts() {
     axios
       .get<BlogPostsInterface>("http://localhost:3000/blog-posts")
       .then((res) => {
-        // Cập nhật trạng thái blog khi có dữ liệu
+        // Cập nhật trạng thái blog khi có dữ liệu123
         setBlog(res.data);
       })
       .catch((error) => {
