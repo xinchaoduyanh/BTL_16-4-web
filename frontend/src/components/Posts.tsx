@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { BlogPostInterface, BlogPostsInterface } from "../model/model";
 
-
 function Posts() {
   const [blog, setBlog] = useState<BlogPostsInterface | null>(null);
 
@@ -33,7 +32,7 @@ function Posts() {
           <div key={slug}>
             <a href={`/post/${slug}`}>{title}</a>
           </div>
-        )
+        ),
       )}
     </div>
   );
