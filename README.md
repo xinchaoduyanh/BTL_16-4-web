@@ -1,3 +1,3 @@
 # BTL_16-4-web
-cd backend -> npm run dev
-cd frontend -> npm run dev
+## cd backend -> npm i -> npm run dev
+## cd frontend -> npm i -> npm run dev
