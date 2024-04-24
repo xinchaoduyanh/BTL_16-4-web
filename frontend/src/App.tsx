@@ -28,7 +28,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/create-post" element={<CreatePost />} />
         <Route path="/posts" element={<Posts />} />
-        <Route path="/post/:slug" element={<PostDetail />} /> 
+        <Route path="/posts/:slug" element={<PostDetail />} /> 
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </Router>

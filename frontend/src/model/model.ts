@@ -1,8 +1,6 @@
-export interface BlogPostInterface {
+export interface BlogPostsInterface {
+  _id: string
   title: string;
   description: string;
-}
-
-export interface BlogPostsInterface {
-  [slug: string]: BlogPostInterface;
+  slug: string;
 }
