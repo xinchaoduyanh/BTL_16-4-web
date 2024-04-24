@@ -1,16 +1,16 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { BlogPostInterface, BlogPostsInterface } from "../model/model";
+import { Link } from "react-router-dom";
+import { BlogPostsInterface } from "../model/model";
 
 function Posts() {
   const [blogPosts, setBlogPosts] = useState<BlogPostsInterface[]>([]);
 
   useEffect(() => {
     axios
-      .get<BlogPostsInterface[]>("http://localhost:3000/blog-posts")
+      .get("http://localhost:3000/blog-posts")
       .then((res) => {
-        // Cập nhật trạng thái blog khi có dữ liệu123
-        setBlog(res.data);
+        setBlogPosts(res.data);
       })
       .catch((error) => {
         console.error("Error fetching blog posts:", error);
@@ -18,14 +18,20 @@ function Posts() {
   }, []);
 
   return (
-    <div style={{ padding: 20 }}>
-      {Object.entries(blog).map(
-        ([slug, { title }]: [string, BlogPostInterface]) => (
-          <div key={slug}>
-            <a href={`/post/${slug}`}>{title}</a>
-          </div>
-        ),
-      )}
+    <div className="p-4">
+      <h2 className="text-2xl font-bold mb-4">Blog Posts</h2>
+      <ul className="space-y-4">
+        {blogPosts.map((post) => (
+          <li key={post.slug} className="border-b pb-2">
+            <Link
+              to={`/posts/${post.slug}`}
+              className="text-blue-500 hover:underline"
+            >
+              {post.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

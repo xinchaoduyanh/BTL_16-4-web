@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
-import { BlogPostInterface } from "../model/model";
+import { BlogPostsInterface } from "../model/model";
 
 export default function PostDetail() {
   const { slug } = useParams();
-  const [blogPost, setBlogPost] = useState<BlogPostInterface | null>(null);
+  const [blogPost, setBlogPost] = useState<BlogPostsInterface | null>(null);
 
   useEffect(() => {
     axios

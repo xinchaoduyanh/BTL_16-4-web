@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { CreateBlogPostsInterface } from "../model/model";
 
 const CreatePost = () => {
   const [message, setMessage] = useState("");
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit } = useForm<CreateBlogPostsInterface>();
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (data: CreateBlogPostsInterface) => {
     try {
       const response = await fetch("http://localhost:3000/new-post", {
         method: "POST",
@@ -16,7 +17,6 @@ const CreatePost = () => {
       });
       if (response.ok) {
         setMessage("Created new post successfully");
-        reset();
       } else {
         setMessage("Failed to create new post");
       }
