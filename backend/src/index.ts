@@ -4,9 +4,11 @@ import router from './routes'
 
 const app = express()
 const port = 3000
-
+//----------------------DOTENV--------------------------------------------------------//
+import * as dotenv from 'dotenv'
+dotenv.config()
 // Kết nối tới cơ sở dữ liệu MongoDB
-mongoose.connect('mongodb+srv://vuduyanh1912:vuduyanh1912@twitter.ksyhz00.mongodb.net/16-4-fullstack-bt-web')
+mongoose.connect(process.env.URI as string)
 
 // Middleware để cho phép CORS
 app.use((req, res, next) => {
